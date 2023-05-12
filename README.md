@@ -3,7 +3,7 @@ A tool to test OTel collector capacity.
 
 ### Description
 
-I needed a tool to send synthetic traces to the collector in my k8s cluster. This code has an image which includes parallelism so the collector can be smashed with random trace/span data. This is a fork. The original code can be found [here](https://github.com/krzko/otelgen).
+I needed a tool to send synthetic traces to the collector in my k8s cluster. This code has an image which includes parallelism so the collector can be smashed with random trace/span data. This is a fork. The original code from krzko can be found [here](https://github.com/krzko/otelgen).
 
 I only focused on traces but it can also generate metrics. 
 
