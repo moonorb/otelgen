@@ -61,8 +61,6 @@ spec:
       - name: otelgen
         image: moonorb/otelgen:v1
         imagePullPolicy: Always
-        ports:
-        - containerPort: 80
 ```
 
 ```
@@ -79,12 +77,12 @@ Fire away(this example runs 2 otelgen processes for 10 minutes with rate of 50 t
 
 ##### http
 ```
-otelgen-app-55fc564f88-jtll4:/# parallel --line-buffer  --jobs 2 "otelgen -i -p http --otel-exporter-otlp-endpoint moonorb-collector-collector.observability.svc.cluster.local:4318 --duration 600 --rate 50 traces multi" ::: 1 2
+otelgen-app-55fc564f88-jtll4:/# parallel --line-buffer  --jobs 2 "otelgen -i -p http --otel-exporter-otlp-endpoint <collector_service_address>:4318 --duration 600 --rate 50 traces multi" ::: 1 2
 ```
 
 ##### grpc
 ```
-otelgen-app-55fc564f88-jtll4:/# parallel --line-buffer --jobs 2 "otelgen -i -p grpc--otel-exporter-otlp-endpoint moonorb-collector-collector.observability.svc.cluster.local:4317 --duration 600 --rate 50 traces multi" ::: 1 2
+otelgen-app-55fc564f88-jtll4:/# parallel --line-buffer --jobs 2 "otelgen -i -p grpc--otel-exporter-otlp-endpoint <collector_service_address>:4317 --duration 600 --rate 50 traces multi" ::: 1 2
 ```
 
 Observe collector logs(with DEBUG): 

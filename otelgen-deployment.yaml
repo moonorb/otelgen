@@ -18,5 +18,3 @@ spec:
       - name: otelgen
         image: moonorb/otelgen:v1
         imagePullPolicy: Always
-        ports:
-        - containerPort: 80
