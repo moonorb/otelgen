@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: "otelgen-app"
+  labels:
+    app: otelgen
+spec:
+  selector:
+    matchLabels:
+      app: otelgen
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: otelgen
+    spec:
+      containers:
+      - name: otelgen
+        image: moonorb/otelgen:v1
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 80
